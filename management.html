@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Question</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .cont_principal {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h3 {
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-spacing: 0;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+        }
+
+        .input_title_desc, .input_description, .input_option, .input_correct_answer {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn_add_fin {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+            width: 100%;
+        }
+
+        .question_item {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .question_options ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .question_header h4 {
+            margin: 5px 0;
+        }
+
+        .question_header p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cont_principal">
+    <h3>CREATE A QUESTION</h3>
+
+    <div class="cont_crear_new">
+        <table class="table">
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Difficulty</th>
+            </tr>
+            <tr>
+                <td>
+                    <select name="category" id="action_select">
+                        <option value="SHOPPING">SHOPPING</option>
+                        <option value="WORK">WORK</option>
+                        <option value="SPORT">SPORT</option>
+                        <option value="MUSIC">MUSIC</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="input_title_desc" placeholder="Enter your question here" />
+                </td>
+                <td>
+                    <select name="difficulty" class="input_description_title" id="date_select">
+                        <option value="HARD">HARD</option>
+                        <option value="NORMAL">NORMAL</option>
+                        <option value="EASY">EASY</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- Description Section -->
+            <tr>
+                <th class="titl_description">Description</th>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <input type="text" class="input_description" placeholder="Enter description here" required/>
+                </td>
+            </tr>
+
+            <!-- New Options Section -->
+            <tr>
+                <th colspan="3" style="text-align: left; padding-top: 20px;">Options</th>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div class="options_container">
+                        <div class="option_field">
+                            <label for="option_a">Option A:</label>
+                            <input type="text" id="option_a" class="input_option" placeholder="Enter Option A" required/>
+                        </div>
+                        <div class="option_field">
+                            <label for="option_b">Option B:</label>
+                            <input type="text" id="option_b" class="input_option" placeholder="Enter Option B" required/>
+                        </div>
+                        <div class="option_field">
+                            <label for="option_c">Option C:</label>
+                            <input type="text" id="option_c" class="input_option" placeholder="Enter Option C" required/>
+                        </div>
+                        <div class="option_field">
+                            <label for="option_d">Option D:</label>
+                            <input type="text" id="option_d" class="input_option" placeholder="Enter Option D" required/>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <div class="correct_answer_container">
+                        <label for="correct_answer">Correct Answer:</label>
+                        <select name="correct_answer" id="correct_answer" class="input_correct_answer" required>
+                            <option value="" disabled selected>Select the correct answer</option>
+                            <option value="A">Option A</option>
+                            <option value="B">Option B</option>
+                            <option value="C">Option C</option>
+                            <option value="D">Option D</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <button class="btn_add_fin" onclick="add_to_list()">ADD</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="cont_princ_lists">
+        <ul id="questions_list">
+            <!-- Dynamically added questions will appear here -->
+        </ul>
+    </div>
+
+</div>
+
+<script>
+    function add_to_list() {
+        // Get the values of inputs
+        let category = document.querySelector('select[name="category"]').value;
+        let title = document.querySelector('.input_title_desc').value;
+        let description = document.querySelector('.input_description').value;
+        let difficulty = document.querySelector('select[name="difficulty"]').value;
+        let optionA = document.querySelector('#option_a').value;
+        let optionB = document.querySelector('#option_b').value;
+        let optionC = document.querySelector('#option_c').value;
+        let optionD = document.querySelector('#option_d').value;
+        let correctAnswer = document.querySelector('#correct_answer').value;
+
+        // Creating a list item with all the necessary information
+        let questionItem = `
+            <li class="question_item">
+                <div class="question_details">
+                    <div class="question_header">
+                        <p><strong>Category:</strong> ${category}</p>
+                        <h4>${title}</h4>
+                        <p><strong>Description:</strong> ${description}</p>
+                        <p><strong>Difficulty:</strong> ${difficulty}</p>
+                    </div>
+                    <div class="question_options">
+                        <p><strong>Options:</strong></p>
+                        <ul>
+                            <li>A: ${optionA}</li>
+                            <li>B: ${optionB}</li>
+                            <li>C: ${optionC}</li>
+                            <li>D: ${optionD}</li>
+                        </ul>
+                        <p><strong>Correct Answer:</strong> ${correctAnswer}</p>
+                    </div>
+                </div>
+            </li>
+        `;
+
+        // Append the question item to the list
+        document.getElementById('questions_list').insertAdjacentHTML('beforeend', questionItem);
+    }
+</script>
+
+</body>
+</html>
