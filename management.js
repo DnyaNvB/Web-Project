@@ -1,3 +1,7 @@
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
+
 function add_to_list() {
     // Get the values of inputs
     let category = document.querySelector('select[name="category"]').value;
@@ -37,24 +41,3 @@ function add_to_list() {
     // Append the question item to the list
     document.getElementById('questions_list').insertAdjacentHTML('beforeend', questionItem);
 }
-
-
-function toggleMode() {
-    const body = document.body;
-    const button = document.getElementById("mode-toggle");
-    
-    // Toggle dark and light mode
-    body.classList.toggle("dark-mode");
-    body.classList.toggle("light-mode");
-    
-    // Update button text based on the current mode
-    if (body.classList.contains("dark-mode")) {
-      button.textContent = "Switch to Light Mode";
-    } else {
-      button.textContent = "Switch to Dark Mode";
-    }
-  }
-  
-  // Add click event listener to toggle button
-  document.getElementById("mode-toggle").addEventListener("click", toggleMode);
-  
