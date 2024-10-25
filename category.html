@@ -2,85 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - To do List</title>
+    <title>To Do List</title>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
     <link rel="stylesheet" href="./category.css">
-
 </head>
 <body class="light-mode"> 
-	<button id="mode-toggle" >Switch to Dark Mode</button>
-
-<!-- partial:index.partial.html -->
-<div class="cont_principal">
-    <div class="cont_centrar">
-
-        <div class="cont_todo_list_top">
-            <div class="cont_titulo_cont">
-                <h3>CATEGORIES</h3>
-            </div>
-            <div class="cont_add_titulo_cont"><a href="#e" onclick="add_new()"><i
-                    class="material-icons">&#xE145;</i></a>
-            </div>
-
-            <!--   End cont_todo_list_top  -->  </div>
-        <div class="cont_crear_new">
-            <table class="table">
-                <tr>
-                    <th></th>
-                    <th>Title</th>
-                </tr>
-                <tr>
-                    <td>
-                        <!-- End td 1 -->
-                    </td>
-                    <td>
-                        <input type="text" class="input_title_desc" />
-
-                        <!-- End td 2 -->
-                    </td>
-                    <td>
-
-                        <!-- End td 3 -->
-                    </td>
-                </tr>
-                <tr>
-                    <th class="titl_description">Description</th>
-                </tr>
-                <tr>
-
-                    <td colspan="3">
-                        <input type="text" class="input_description" required/>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="3">
-                        <button class="btn_add_fin" onclick="add_to_list()">ADD</button>
-                    </td>
-                </tr>
-            </table>
-            <!--   End cont_crear_new  -->
-        </div>
-
-
-        <div class="cont_princ_lists">
-            <ul>
-                <li class="list_shopping li_num_0_1">
-                    <div class="col_md_1_list">
-                        <p>SHOPPIGN</p>
-                    </div>
-                    <div class="col_md_2_list">
-                        <p>DODIDONE COFFEE STORE</p>
-                    </div>
-                </li>
-
-                </ul>
-            <!--   End cont_todo_list_top  -->   </div>
-
-
-        <!--   End cont_central  -->
+    <div class="toggle-container">
+        <button id="mode-toggle">Switch to Dark Mode</button>
     </div>
-</div>
-<script src="./category.js"></script>
+
+    <div class="cont_principal">
+        <div class="cont_centrar">
+            <div class="cont_todo_list_top">
+                <div class="cont_titulo_cont">
+                    <h3>CATEGORIES</h3>
+                </div>
+                <div class="cont_add_titulo_cont">
+                    <a href="#e" onclick="add_new()"><i class="material-icons">&#xE145;</i></a>
+                </div>
+            </div>
+            <div class="cont_crear_new">
+                <table class="table">
+                    <tr>
+                        <th></th>
+                        <th>Title</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><input type="text" class="input_title_desc" /></td>
+                    </tr>
+                    <tr>
+                        <th class="titl_description">Description</th>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><input type="text" class="input_description" required/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><button class="btn_add_fin" onclick="add_to_list()">ADD</button></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="cont_princ_lists">
+                <ul>
+                    <li class="list_shopping li_num_0_1">
+                        <div class="col_md_1_list">
+                            <p>SHOPPING</p>
+                        </div>
+                        <div class="col_md_2_list">
+                            <p>DODIDONE COFFEE STORE</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="./category.js"></script>
 </body>
 </html>
