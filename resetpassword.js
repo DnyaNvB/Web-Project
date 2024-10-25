@@ -1,25 +1,32 @@
-function toggleMode() {
-    const body = document.body;
-    const button = document.getElementById("mode-toggle");
-
-    // Toggle dark and light mode
-    body.classList.toggle("dark-mode");
-    body.classList.toggle("light-mode");
-
-    // Update button text based on the current mode
-    if (body.classList.contains("dark-mode")) {
-      button.textContent = "Switch to Light Mode";
-    } else {
-      button.textContent = "Switch to Dark Mode";
-    }
+document.getElementById('mode-toggle').addEventListener('click', function() {
+  const body = document.body;
+  body.classList.toggle('dark-mode');
+  if (body.classList.contains('dark-mode')) {
+    this.textContent = 'Switch to Light Mode';
+  } else {
+    this.textContent = 'Switch to Dark Mode';
   }
+});
 
-  // Add click event listener to toggle button
-  document.getElementById("mode-toggle").addEventListener("click", toggleMode);
+function validateForm(fields) {
+  for (const field of fields) {
+      if (field.value.trim() === '') {
+          alert('Please fill in all fields.');
+          return false;
+      }
+  }
+  return true;
+}
 
   document.getElementById('logout-button').addEventListener('click', function () {
     window.location.href = 'signinlogin.html';
-    console.log("hi");
   });
-  
-  
+
+  document.querySelector('.card-front .btn').addEventListener('click', function(event) {
+    const loginEmail = document.getElementById('prevpass');  
+    const loginPassword = document.getElementById('newpass');
+    const conf = document.getElementById('confirmpass');
+    if (!validateForm([loginEmail, loginPassword,conf])) {
+        event.preventDefault(); // Prevent form submission
+    }
+  });
