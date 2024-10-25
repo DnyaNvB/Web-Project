@@ -90,49 +90,55 @@ html {
 
 /* Default light mode styles */
 body.light-mode {
-	background-color: #ffffff;
-	color: #000;
+	background-color: #faf9f7;
   }
   
+  .toggle-container {
+	text-align: center;
+	padding: 10px 0;
+	background-color: transparent; /* Match background to avoid the white bar */
+  }
+  
+  body.dark-mode {
+	--main-color: #ffffff;
+	--sec-color: #c4c3ca;
+	--thir-color: #a7b9ff;
+	--background-color: #1f2029;
+	--cardbackground-color: #2a2b38;
+	background-color: #1f2029;
+  }
+  
+  body.light-mode .toggle-container {
+	background-color: #faf9f7; /* Match body background in light mode */
+  }
+  
+  body.dark-mode .toggle-container {
+	background-color: #1f2029; /* Match body background in dark mode */
+  }
+  
+  #mode-toggle {
+	background-color: #333;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+  }
+  
+  #mode-toggle:hover {
+	background-color: #555;
+  }
+  
+  /* Dark Mode Styles */
   body.dark-mode {
 	background-color: #1f2029;
 	color: #e0e0e0;
   }
   
-  /* Additional styles for the leaderboard in dark mode */
-  body.dark-mode .leaderboard {
-	background: linear-gradient(#333, #444);
-	box-shadow: 0 7px 20px rgba(0, 0, 0, 0.8);
+  /* Additional Dark Mode Styles */
+  body.dark-mode .cont_principal {
+	background: linear-gradient(135deg, #333, #444);
   }
-  
-  body.dark-mode .leaderboard h1 {
-	background: linear-gradient(#222, #333);
-	color: #e0e0e0;
-  }
-  
-  body.dark-mode .leaderboard ol li {
-	background: #2a2b38;
-	color: #e0e0e0;
-	box-shadow: 0 0 0.5rem 1px rgba(80, 80, 80, 0.8);
-  }
-  
-  body.dark-mode .leaderboard ol li mark {
-	color: #fff;
-  }
-  
-  body.dark-mode .leaderboard ol li:hover {
-	box-shadow: 0 0 1rem 1px rgba(150, 150, 150, 0.8);
-  }
-  
-  /* Dark mode loader styles */
-  body.dark-mode .loader {
-	background: #333;
-  }
-  
-  body.dark-mode .spinner-circle {
-	background-color: #e0e0e0;
-  }
-  
 
 div.scroller {
 	height: 100%;
