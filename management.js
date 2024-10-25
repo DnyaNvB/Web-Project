@@ -1,6 +1,13 @@
-function toggleDarkMode() {
-    document.body.classList.toggle("dark-mode");
-}
+document.getElementById('mode-toggle').addEventListener('click', function() {
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      this.textContent = 'Switch to Light Mode';
+    } else {
+      this.textContent = 'Switch to Dark Mode';
+    }
+  });
+
 function add_to_list() {
     // Get the values of inputs
     let category = document.querySelector('select[name="category"]').value;
@@ -42,5 +49,7 @@ function add_to_list() {
 }
 
 document.getElementById('logout-button').addEventListener('click', function () {
+    console.log("sss");
+
     window.location.href = 'mainmenu.html';
 });
