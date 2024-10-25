@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,16 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
     <link rel="stylesheet" href="./management.css">
-
 </head>
+
 <body>
+    <button id="logout-button" style="position: absolute; top: 20px; left: 20px;">Back</button>
+    <div class="cont_principal">
+        <h3>CREATE A QUESTION</h3>
 
 <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
 
-<div class="cont_principal">
+<!-- <div class="cont_principal">
     <h3>CREATE A QUESTION</h3>
 
     <div class="cont_crear_new">
@@ -44,7 +48,7 @@
                 </td>
             </tr>
 
-            <!-- Description Section -->
+        
             <tr>
                 <th class="titl_description">Description</th>
             </tr>
@@ -54,7 +58,6 @@
                 </td>
             </tr>
 
-            <!-- New Options Section -->
             <tr>
                 <th colspan="3" style="text-align: left; padding-top: 20px;">Options</th>
             </tr>
@@ -89,28 +92,106 @@
                             <option value="A">Option A</option>
                             <option value="B">Option B</option>
                             <option value="C">Option C</option>
-                            <option value="D">Option D</option>
+                            <option value="D">Option D</option> -->
+        <div class="cont_crear_new">
+            <table class="table">
+                <tr>
+                    <th>Category</th>
+                    <th>Title</th>
+                    <th>Difficulty</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="category" id="action_select">
+                            <option value="SHOPPING">SHOPPING</option>
+                            <option value="WORK">WORK</option>
+                            <option value="SPORT">SPORT</option>
+                            <option value="MUSIC">MUSIC</option>
                         </select>
-                    </div>
-                </td>
-            </tr>
+                    </td>
+                    <td>
+                        <input type="text" class="input_title_desc" placeholder="Enter your question here" />
+                    </td>
+                    <td>
+                        <select name="difficulty" class="input_description_title" id="date_select">
+                            <option value="HARD">HARD</option>
+                            <option value="NORMAL">NORMAL</option>
+                            <option value="EASY">EASY</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr>
-                <td colspan="3">
-                    <button class="btn_add_fin" onclick="add_to_list()">ADD</button>
-                </td>
-            </tr>
-        </table>
+                <!-- Description Section -->
+                <tr>
+                    <th class="titl_description">Description</th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="text" class="input_description" placeholder="Enter description here" required />
+                    </td>
+                </tr>
+
+                <!-- New Options Section -->
+                <tr>
+                    <th colspan="3" style="text-align: left; padding-top: 20px;">Options</th>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div class="options_container">
+                            <div class="option_field">
+                                <label for="option_a">Option A:</label>
+                                <input type="text" id="option_a" class="input_option" placeholder="Enter Option A"
+                                    required />
+                            </div>
+                            <div class="option_field">
+                                <label for="option_b">Option B:</label>
+                                <input type="text" id="option_b" class="input_option" placeholder="Enter Option B"
+                                    required />
+                            </div>
+                            <div class="option_field">
+                                <label for="option_c">Option C:</label>
+                                <input type="text" id="option_c" class="input_option" placeholder="Enter Option C"
+                                    required />
+                            </div>
+                            <div class="option_field">
+                                <label for="option_d">Option D:</label>
+                                <input type="text" id="option_d" class="input_option" placeholder="Enter Option D"
+                                    required />
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div class="correct_answer_container">
+                            <label for="correct_answer">Correct Answer:</label>
+                            <select name="correct_answer" id="correct_answer" class="input_correct_answer" required>
+                                <option value="" disabled selected>Select the correct answer</option>
+                                <option value="A">Option A</option>
+                                <option value="B">Option B</option>
+                                <option value="C">Option C</option>
+                                <option value="D">Option D</option>
+                            </select>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <button class="btn_add_fin" onclick="add_to_list()">ADD</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="cont_princ_lists">
+            <ul id="questions_list">
+                <!-- Dynamically added questions will appear here -->
+            </ul>
+        </div>
+
     </div>
 
-    <div class="cont_princ_lists">
-        <ul id="questions_list">
-            <!-- Dynamically added questions will appear here -->
-        </ul>
-    </div>
-
-</div>
-<script  src="./management.js"></script>
-
+    <script src="./management.js"></script>
 </body>
 </html>

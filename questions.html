@@ -2,62 +2,71 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - FAQ Accordion</title>
-  <meta charset="UTF-8">
+  <title>FAQ Accordion</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./questions.css">
 </head>
-<body class="light-mode"> 
-<button id="mode-toggle" style="position: absolute; top: 20px; right: 20px;">Switch to Dark Mode</button>
+<body class="light-mode">
+  <button id="logout-button" style="position: absolute; top: 20px; left: 20px;">Back</button>
+  <button id="mode-toggle" style="position: absolute; top: 20px; right: 20px;">Switch to Dark Mode</button>
 
-<main class="card">
-  <h2 class="title">Question Management</h2>
-  <div class="filter-options">
-    <button class="filter-btn" onclick="filterQuestions('all')">All</button>
-    <button class="filter-btn" onclick="filterQuestions('easy')">Easy</button>
-    <button class="filter-btn" onclick="filterQuestions('normal')">Normal</button>
-    <button class="filter-btn" onclick="filterQuestions('hard')">Hard</button>
-  </div>
-  <a href="answering.html" class="btn">Answer New Question</a>
-  <div class="acc-container">
-
-    <div class="acc-item" data-difficulty="hard">
-      <button class="acc-btn">
-        <span class="score-icon">⭐</span>
-        <span class="score">HARD</span>What is the definition of a will?
-      </button>
-      <div class="acc-content">
-        <p>It is a dead giveaway.</p>
-      </div>
+  <main class="card">
+    <h2 class="title">Question Management</h2>
+    <div class="filter-options">
+      <select id="difficulty-select" onchange="applyFilters()">
+        <option value="all">All Difficulties</option>
+        <option value="easy">Easy</option>
+        <option value="normal">Normal</option>
+        <option value="hard">Hard</option>
+      </select>
+      <select id="category-select" onchange="applyFilters()">
+        <option value="all">All Categories</option>
+        <option value="science">Science</option>
+        <option value="legal">Legal</option>
+        <option value="nature">Nature</option>
+        <!-- Add additional options if needed -->
+      </select>
     </div>
+    <a href="answering.html" class="btn">Answer New Question</a>
+    <div class="acc-container">
 
-    <div class="acc-item" data-difficulty="easy">
-      <button class="acc-btn">
-        <span class="score-icon">⭐</span>
-        <span class="score">EASY</span>What happens to chemists when they die?
-      </button>
-      <div class="acc-content">
-        <p>We barium [bury them].</p>
+      <div class="acc-item" data-difficulty="hard" data-category="legal">
+        <button class="acc-btn">
+          <span class="score-icon">⭐</span>
+          <span class="score">HARD</span>
+          <span class="category-label">[Legal]</span> What is the definition of a will?
+        </button>
+        <div class="acc-content">
+          <p>It is a dead giveaway.</p>
+        </div>
       </div>
-    </div>
 
-    <div class="acc-item" data-difficulty="normal">
-      <button class="acc-btn">
-        <span class="score-icon">⭐</span>
-        <span class="score">NORMAL</span>Why does the leopard find it difficult to hide and stalk?
-      </button>
-      <div class="acc-content">
-        <p>Because he is spotted always.</p>
+      <div class="acc-item" data-difficulty="easy" data-category="science">
+        <button class="acc-btn">
+          <span class="score-icon">⭐</span>
+          <span class="score">EASY</span>
+          <span class="category-label">[Science]</span> What happens to chemists when they die?
+        </button>
+        <div class="acc-content">
+          <p>We barium [bury them].</p>
+        </div>
       </div>
+
+      <div class="acc-item" data-difficulty="normal" data-category="nature">
+        <button class="acc-btn">
+          <span class="score-icon">⭐</span>
+          <span class="score">NORMAL</span>
+          <span class="category-label">[Nature]</span> Why does the leopard find it difficult to hide and stalk?
+        </button>
+        <div class="acc-content">
+          <p>Because he is spotted always.</p>
+        </div>
+      </div>
+
+      <!-- Additional questions can be added here in the same format -->
+
     </div>
-
-    <!-- Additional questions follow in the same format -->
-
-  </div>
-</main>
-<script src="./questions.js"></script>
-<p class="credit">
-</p>
-
+  </main>
+  <script src="./questions.js"></script>
 </body>
 </html>

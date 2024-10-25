@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>To Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
     <link rel="stylesheet" href="./category.css">
@@ -12,16 +14,25 @@
         <button id="mode-toggle">Switch to Dark Mode</button>
     </div>
 
-    <div class="cont_principal">
+    <!-- Logout button -->
+    <button id="logout-button" style="position: absolute; top: 20px; left: 20px;">Back</button>
+    <!-- Dark/Light mode toggle button -->
+    <button id="mode-toggle" style="position: absolute; top: 20px; right: 20px;">Switch to Dark Mode</button>
+
         <div class="cont_centrar">
+            <!-- Top section with title and add button -->
             <div class="cont_todo_list_top">
                 <div class="cont_titulo_cont">
                     <h3>CATEGORIES</h3>
                 </div>
                 <div class="cont_add_titulo_cont">
-                    <a href="#e" onclick="add_new()"><i class="material-icons">&#xE145;</i></a>
+                    <a href="#e" onclick="add_new()">
+                        <i class="material-icons">&#xE145;</i>
+                    </a>
                 </div>
             </div>
+
+            <!-- New category form -->
             <div class="cont_crear_new">
                 <table class="table">
                     <tr>
@@ -30,34 +41,35 @@
                     </tr>
                     <tr>
                         <td></td>
-                        <td><input type="text" class="input_title_desc" /></td>
+                        <td>
+                            <input type="text" class="input_title_desc" />
+                        </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th class="titl_description">Description</th>
                     </tr>
                     <tr>
-                        <td colspan="3"><input type="text" class="input_description" required/></td>
+                        <td colspan="3">
+                            <input type="text" class="input_description" required />
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="3"><button class="btn_add_fin" onclick="add_to_list()">ADD</button></td>
+                        <td colspan="3">
+                            <button class="btn_add_fin" onclick="add_to_list()">ADD</button>
+                        </td>
                     </tr>
                 </table>
             </div>
-
+            <!-- Category list -->
             <div class="cont_princ_lists">
-                <ul>
-                    <li class="list_shopping li_num_0_1">
-                        <div class="col_md_1_list">
-                            <p>SHOPPING</p>
-                        </div>
-                        <div class="col_md_2_list">
-                            <p>DODIDONE COFFEE STORE</p>
-                        </div>
-                    </li>
+                <ul id="category-list">
+                    <!-- List items will be added dynamically here -->
                 </ul>
             </div>
         </div>
-    </div>
+    <!-- JavaScript file for functionality -->
     <script src="./category.js"></script>
 </body>
+
 </html>
