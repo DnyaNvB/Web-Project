@@ -30,5 +30,5 @@ document.getElementById('mode-toggle').addEventListener('click', function() {
 
 // Logout button functionality
 document.getElementById('logout-button').addEventListener('click', function() {
-  window.location.href = 'mainmenu.html';
+  window.location.href = 'mainmenup.html';
 });
