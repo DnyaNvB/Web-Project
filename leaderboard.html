@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - React Leaderboard</title>
-  <link rel="stylesheet" href="./leaderboard.css">
+	<meta charset="UTF-8">
+	<title>CodePen - React Leaderboard</title>
+	<link rel="stylesheet" href="./leaderboard.css">
 
 
 </head>
-<body class="light-mode"> 
-<button id="mode-toggle" style="position: absolute; top: 20px; right: 20px;">Switch to Dark Mode</button>
 
-<!-- partial:index.partial.html -->
-<div class="loader initial">
-	<div class="spinner">
-		<div class="spinner-circle"></div>
-		<div class="spinner-circle"></div>
+<body class="light-mode">
+	<button id="logout-button" style="position: absolute; top: 20px; left: 20px;">Back</button>
+	<button id="mode-toggle" style="position: absolute; top: 20px; right: 20px;">Switch to Dark Mode</button>
+
+	<!-- partial:index.partial.html -->
+	<div class="loader initial">
+		<div class="spinner">
+			<div class="spinner-circle"></div>
+			<div class="spinner-circle"></div>
+		</div>
 	</div>
-</div>
-<div class='scroller'>
-	<div id='app'></div>
-</div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.development.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.development.js'></script>
-<script  src="./leaderboard.js"></script>
+	<div class='scroller'>
+		<div id='app'></div>
+	</div>
+	<!-- partial -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/react/16.2.0/umd/react.development.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.2.0/umd/react-dom.development.js'></script>
+	<script src="./leaderboard.js"></script>
 
 </body>
+
 </html>
