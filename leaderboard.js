@@ -85,15 +85,14 @@ class App extends React.Component {
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById('app'));
 
-
 function toggleMode() {
   const body = document.body;
   const button = document.getElementById("mode-toggle");
-  
+
   // Toggle dark and light mode
   body.classList.toggle("dark-mode");
   body.classList.toggle("light-mode");
-  
+
   // Update button text based on the current mode
   if (body.classList.contains("dark-mode")) {
     button.textContent = "Switch to Light Mode";
