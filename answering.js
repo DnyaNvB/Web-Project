@@ -1,5 +1,7 @@
+// Selects all accordion buttons
 const btns = document.querySelectorAll(".acc-btn");
 
+// Data for random questions
 const randomQuestions = [
   {
     question: "What is the definition of a will?",
@@ -44,12 +46,13 @@ const randomQuestions = [
 ];
 
 let currentQuestion = {};
+let selectedCategory = 'all'; // Default category
+let selectedDifficulty = 'all'; // Default difficulty
+
+// Display random question
 function displayRandomQuestion() {
-  // Select a random question
   const randomIndex = Math.floor(Math.random() * randomQuestions.length);
   currentQuestion = randomQuestions[randomIndex];
-
-  // Display the random question and options
   const formContainer = document.querySelector('.random-question-form');
   formContainer.innerHTML = `<h4>${currentQuestion.question}</h4>`;
   currentQuestion.options.forEach((option, index) => {
@@ -62,91 +65,60 @@ function displayRandomQuestion() {
     `;
   });
 
-  // Show the submit button
   const submitButton = document.querySelector('.random-submit-btn');
   submitButton.style.display = 'block';
-  submitButton.style.margin = '0 auto'; // Center the button
-
-  // Clear any previous result message
+  submitButton.style.margin = '0 auto';
   document.querySelector('.result-message').textContent = '';
 }
 
+// Submit random answer
 function submitRandomAnswer() {
   const selectedOption = document.querySelector('input[name="random-answer"]:checked');
-  
   if (!selectedOption) {
     alert('Please select an answer.');
     return;
   }
-
   const resultMessage = document.querySelector('.result-message');
   if (selectedOption.value === currentQuestion.correctAnswer) {
     resultMessage.textContent = 'Correct! 🎉';
-    resultMessage.style.color = '#28a745'; // Green for correct
+    resultMessage.style.color = '#28a745';
   } else {
     resultMessage.textContent = 'Incorrect. Try again! ❌';
-    resultMessage.style.color = '#dc3545'; // Red for incorrect
+    resultMessage.style.color = '#dc3545';
   }
 }
 
-
-function submitRandomAnswer() {
-  const selectedOption = document.querySelector('input[name="random-answer"]:checked');
-  
-  if (!selectedOption) {
-    alert('Please select an answer.');
-    return;
-  }
-
-  const resultMessage = document.querySelector('.result-message');
-  if (selectedOption.value === currentQuestion.correctAnswer) {
-    resultMessage.textContent = 'Correct! 🎉';
-    resultMessage.style.color = '#28a745'; // Green for correct
-  } else {
-    resultMessage.textContent = 'Incorrect. Try again! ❌';
-    resultMessage.style.color = '#dc3545'; // Red for incorrect
-  }
+// Update category filter
+function updateCategoryFilter() {
+  selectedCategory = document.getElementById('category-select').value;
+  filterQuestions();
 }
 
-
-// fn
-function filterQuestions(difficulty) {
+// Filter questions by difficulty and category
+function filterQuestions(difficulty = selectedDifficulty, category = selectedCategory) {
+  selectedDifficulty = difficulty; // Update global difficulty
   const items = document.querySelectorAll('.acc-item');
 
   items.forEach(item => {
-    if (difficulty === 'all' || item.getAttribute('data-difficulty') === difficulty) {
-      item.style.display = 'block'; // Show item
-    } else {
-      item.style.display = 'none'; // Hide item
-    }
+    const itemDifficulty = item.getAttribute('data-difficulty');
+    const itemCategory = item.getAttribute('data-category') || "general"; // Default to "general" if no category
+    const matchesDifficulty = difficulty === 'all' || itemDifficulty === difficulty;
+    const matchesCategory = category === 'all' || itemCategory === category;
+
+    item.style.display = matchesDifficulty && matchesCategory ? 'block' : 'none';
   });
 }
 
+
+// Accordion toggle
 function accordion() {
-  // this = the btn | icon & bg changed
   this.classList.toggle("is-open");
-
-  // the acc-content
   const content = this.nextElementSibling;
-
-  // IF open, close | else open
-  if (content.style.maxHeight) content.style.maxHeight = null;
-  else content.style.maxHeight = content.scrollHeight + "px";
+  content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
 }
 
-// event
+// Event listeners
 btns.forEach((el) => el.addEventListener("click", accordion));
-
-/*
-
-       Jokes are from >
-        https://chartcons.com/100-funny-trick-questions-answers/
-        Background image from >
-        https://www.magicpattern.design/tools/css-backgrounds
-
-*/
-
 document.getElementById('logout-button').addEventListener('click', function () {
-  // Add your logout logic here, such as redirecting to a logout page
-  window.location.href = 'questions.html'; // Example redirect to a logout page
+  window.location.href = 'questions.html';
 });
