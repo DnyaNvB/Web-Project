@@ -47,15 +47,21 @@ document.querySelector('.card-front .btn').addEventListener('click', function(ev
       event.preventDefault(); // Prevent form submission
   }
 });
-
-// Event listener for the signup form
 document.querySelector('.card-back .btn').addEventListener('click', function(event) {
-  const signupName = document.getElementById('logname');
-  const signupEmail = document.getElementById('logemail');
-  const signupPassword = document.getElementById('logpass');
+  const signupName = document.getElementById('signupName');
+  const signupEmail = document.getElementById('signupEmail');
+  const signupPassword = document.getElementById('signupPassword');
   const signupUserType = document.getElementById('userType');
 
   if (!validateForm([signupName, signupEmail, signupPassword, signupUserType])) {
       event.preventDefault(); // Prevent form submission
+  } else {
+      event.preventDefault(); // Prevent default link behavior
+      const selectedUserType = signupUserType.value;
+      if (selectedUserType === 'player') {
+          window.location.href = 'mainmenup.html';
+      } else {
+          window.location.href = 'mainmenu.html';
+      }
   }
 });
