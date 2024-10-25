@@ -17,7 +17,6 @@ body.light-mode {
   background-color: #ffffff;
 }
 
-/* Dark Mode Styles */
 body.dark-mode {
   --main-color: #ffffff;
   --sec-color: #c4c3ca;

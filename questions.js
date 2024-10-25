@@ -16,15 +16,6 @@ function accordion() {
 // event
 btns.forEach((el) => el.addEventListener("click", accordion));
 
-/*
-
-       Jokes are from >
-        https://chartcons.com/100-funny-trick-questions-answers/
-        Background image from >
-        https://www.magicpattern.design/tools/css-backgrounds
-
-*/
-
 function filterQuestions(difficulty) {
   const items = document.querySelectorAll('.acc-item');
 

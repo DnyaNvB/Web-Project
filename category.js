@@ -37,7 +37,6 @@ setTimeout(function(){
 function del_finish(){
 var li = document.querySelectorAll('.list_finish_state');
     for(var e = 0; e < li.length; e++){
-/* li[e].style.left = "-100px"; */
 li[e].style.opacity = "0";
 li[e].style.height = "0px";
 li[e].style.margin = "0px";
@@ -66,12 +65,21 @@ document.querySelector('.cont_add_titulo_cont').className = "cont_add_titulo_con
   }
 }
 
-document.getElementById('mode-toggle').addEventListener('click', function() {
+function toggleMode() {
   const body = document.body;
-  body.classList.toggle('dark-mode');
-  if (body.classList.contains('dark-mode')) {
-    this.textContent = 'Switch to Light Mode';
+  const button = document.getElementById("mode-toggle");
+  
+  // Toggle dark and light mode
+  body.classList.toggle("dark-mode");
+  body.classList.toggle("light-mode");
+  
+  // Update button text based on the current mode
+  if (body.classList.contains("dark-mode")) {
+    button.textContent = "Switch to Light Mode";
   } else {
-    this.textContent = 'Switch to Dark Mode';
+    button.textContent = "Switch to Dark Mode";
   }
-});
+}
+
+// Add click event listener to toggle button
+document.getElementById("mode-toggle").addEventListener("click", toggleMode);
