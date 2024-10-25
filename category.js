@@ -1,77 +1,55 @@
-var contador = 0;
+let t = 0;
+let contador = 0;
 
-function add_to_list(){
-var description = document.querySelector('.input_description').value,
-title = document.querySelector('.input_title_desc').value;
+function add_new() {
+    const newContainer = document.querySelector('.cont_crear_new');
+    const titleContainer = document.querySelector('.cont_add_titulo_cont');
 
-var class_li  =['list_shopping list_dsp_none','list_work list_dsp_none','list_sport list_dsp_none','list_music list_dsp_none'];
-
-var cont = '<div class="col_md_1_list">    <p>'+title+'</p>    </div> <div class="col_md_2_list"> <h4>'+description+'</h4> </div>    <div class="col_md_3_list"> <div class="cont_text_date"> </div>  <div class="cont_btns_options">    <ul>  <li><a href="#finish" onclick="finish_action('+title+','+contador+');" ><i class="material-icons">&#xE5CA;</i></a></li>   </ul>  </div>    </div>';
-
-var li = document.createElement('li')
-li.className = class_li[title]+" li_num_"+contador;
-
-li.innerHTML = cont;
-document.querySelectorAll('.cont_princ_lists > ul')[0].appendChild(li);
-
-setTimeout(function(){  document.querySelector('.li_num_'+contador).style.display = "block";
-},100);
-
-setTimeout(function(){
-  document.querySelector('.li_num_'+contador).className = "list_dsp_true "+class_li[select_opt]+" li_num_"+contador;
-contador++;
-},200);
-
+    if (t % 2 === 0) {
+        newContainer.classList.add("cont_crear_new_active");
+        titleContainer.classList.add("cont_add_titulo_cont_active");
+    } else {
+        newContainer.classList.remove("cont_crear_new_active");
+        titleContainer.classList.remove("cont_add_titulo_cont_active");
+    }
+    t++;
 }
 
-function finish_action(num,num2) {
+function add_to_list() {
+    const title = document.querySelector('.input_title_desc').value;
+    const description = document.querySelector('.input_description').value;
 
-var class_li  =['list_shopping list_dsp_true','list_work  list_dsp_true','list_sport list_dsp_true','list_music list_dsp_true'];
-console.log('.li_num_'+num2);
- document.querySelector('.li_num_'+num2).className = class_li[num]+" list_finish_state";
-setTimeout(function(){
-           del_finish();
-           },500);
-}
-
-function del_finish(){
-var li = document.querySelectorAll('.list_finish_state');
-    for(var e = 0; e < li.length; e++){
-/* li[e].style.left = "-100px"; */
-li[e].style.opacity = "0";
-li[e].style.height = "0px";
-li[e].style.margin = "0px";
+    if (!title || !description) {
+        alert('Please fill in both the title and description');
+        return;
     }
 
-  setTimeout(function(){
-var li = document.querySelectorAll('.list_finish_state');
-    for(var e = 0; e < li.length; e++){
-  li[e].parentNode.removeChild(li[e]);
-    }
-  },500);
+    const li = document.createElement('li');
+    li.className = `list_shopping list_dsp_none li_num_${contador}`;
+    li.innerHTML = `
+        <div class="col_md_1_list">
+            <p>${title}</p>
+        </div>
+        <div class="col_md_2_list">
+            <h4>${description}</h4>
+        </div>
+    `;
 
+    document.getElementById('category-list').appendChild(li);
 
-}
-var t = 0;
-function add_new(){
-if(t % 2 == 0){
- document.querySelector('.cont_crear_new').className = "cont_crear_new cont_crear_new_active";
- console.log("wtf")
-
-  document.querySelector('.cont_add_titulo_cont').className = "cont_add_titulo_cont cont_add_titulo_cont_active";
-  t++;
-}else {  document.querySelector('.cont_crear_new').className = "cont_crear_new";
-document.querySelector('.cont_add_titulo_cont').className = "cont_add_titulo_cont";
-  t++;
-  }
+    setTimeout(() => {
+        li.style.display = "block";
+        li.classList.add('list_dsp_true');
+        contador++;
+    }, 200);
 }
 
 document.getElementById('mode-toggle').addEventListener('click', function() {
-  const body = document.body;
-  body.classList.toggle('dark-mode');
-  if (body.classList.contains('dark-mode')) {
-    this.textContent = 'Switch to Light Mode';
-  } else {
-    this.textContent = 'Switch to Dark Mode';
-  }
+    const body = document.body;
+    body.classList.toggle('dark-mode');
+    this.textContent = body.classList.contains('dark-mode') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+});
+
+document.getElementById('logout-button').addEventListener('click', function () {
+    window.location.href = 'mainmenu.html';
 });
