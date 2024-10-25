@@ -11,6 +11,8 @@
 </head>
 <body>
 
+<button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
 <div class="cont_principal">
     <h3>CREATE A QUESTION</h3>
 
@@ -23,7 +25,7 @@
             </tr>
             <tr>
                 <td>
-                    <select name="category" id="action_select">
+                    <select name="category" id="action_select" class="input_title_desc">
                         <option value="SHOPPING">SHOPPING</option>
                         <option value="WORK">WORK</option>
                         <option value="SPORT">SPORT</option>
@@ -34,7 +36,7 @@
                     <input type="text" class="input_title_desc" placeholder="Enter your question here" />
                 </td>
                 <td>
-                    <select name="difficulty" class="input_description_title" id="date_select">
+                    <select name="difficulty" class="input_description_title input_title_desc" id="date_select">
                         <option value="HARD">HARD</option>
                         <option value="NORMAL">NORMAL</option>
                         <option value="EASY">EASY</option>
