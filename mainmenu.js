@@ -6,6 +6,7 @@ document.getElementById('mode-toggle').addEventListener('click', function () {
   } else {
     this.textContent = 'Switch to Dark Mode';
   }
+
 });
 document.getElementById('logout-button').addEventListener('click', function () {
   // Add your logout logic here, such as redirecting to a logout page

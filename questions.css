@@ -59,7 +59,7 @@ body.dark-mode {
     width: 80%;
     min-height: 30rem;
     border-radius: 2rem;
-    text-align: center; /* Add this */
+    text-align: center;
 }
 
 .filter-options {
@@ -123,16 +123,16 @@ body.dark-mode {
 
 .score {
     display: inline-block;
-    min-width: 30px; /* Adjust as needed */
-    margin-right: 10px; /* Space between score and question */
+    min-width: 30px;
+    margin-right: 10px; 
     font-weight: bold;
-    color: #555; /* Adjust color as needed */
+    color: #555; 
     text-align: center;
 }
 
 .score-icon {
-    margin-right: 5px; /* Space between icon and score */
-    color: gold; /* Icon color */
+    margin-right: 5px;
+    color: gold; 
 }
 
 .acc-btn.is-open:after {
@@ -182,7 +182,7 @@ body.dark-mode {
     text-align: center;
     border: none;
     background-color: var(--thir-color);
-    color: var(--main-color); /* Use the variable here */
+    color: var(--main-color);
     box-shadow: 0 8px 24px 0 rgba(255, 235, 167, 0.2);
 }
 

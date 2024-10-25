@@ -1,8 +1,13 @@
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: #f4f4f4;
+    /* color: #000;
     margin: 0;
     padding: 20px;
+    transition: background-color 0.3s, color 0.3s; */
+    margin: 0;
+    padding: 20px;
+
 }
 
 .cont_principal {
@@ -21,6 +26,17 @@ h3 {
     border-spacing: 0;
 }
 
+/* .table th, .table td {
+    padding: 10px;
+}
+
+.input_title_desc, .input_description, .input_option, .input_correct_answer {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s, color 0.3s;
+} */
 
 #logout-button {
 	background-color: #000000;
@@ -61,6 +77,35 @@ h3 {
     border: none;
     text-align: center;
     width: 100%;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.toggle-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    margin-bottom: 20px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode .input_title_desc, .dark-mode .input_description, 
+.dark-mode .input_option, .dark-mode .input_correct_answer {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+}
+
+.dark-mode .btn_add_fin, .dark-mode .toggle-btn {
+    background-color: #444;
+    color: #e0e0e0;
 }
 
 .question_item {

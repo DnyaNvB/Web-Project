@@ -119,6 +119,17 @@ function accordion() {
 
 // Event listeners
 btns.forEach((el) => el.addEventListener("click", accordion));
+document.getElementById('mode-toggle').addEventListener('click', function() {
+  const body = document.body;
+  body.classList.toggle('dark-mode');
+  if (body.classList.contains('dark-mode')) {
+    this.textContent = 'Switch to Light Mode';
+  } else {
+    this.textContent = 'Switch to Dark Mode';
+  }
+});
 document.getElementById('logout-button').addEventListener('click', function () {
   window.location.href = 'questions.html';
+  console.log("hi");
 });
+

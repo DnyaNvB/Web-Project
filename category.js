@@ -19,6 +19,20 @@ function add_to_list() {
     const title = document.querySelector('.input_title_desc').value;
     const description = document.querySelector('.input_description').value;
 
+// var class_li  =['list_shopping list_dsp_true','list_work  list_dsp_true','list_sport list_dsp_true','list_music list_dsp_true'];
+// console.log('.li_num_'+num2);
+//  document.querySelector('.li_num_'+num2).className = class_li[num]+" list_finish_state";
+// setTimeout(function(){
+//            del_finish();
+//            },500);
+// }
+
+// function del_finish(){
+// var li = document.querySelectorAll('.list_finish_state');
+//     for(var e = 0; e < li.length; e++){
+// li[e].style.opacity = "0";
+// li[e].style.height = "0px";
+// li[e].style.margin = "0px";
     if (!title || !description) {
         alert('Please fill in both the title and description');
         return;
@@ -43,12 +57,24 @@ function add_to_list() {
         contador++;
     }, 200);
 }
+function toggleMode() {
+  const body = document.body;
+  const button = document.getElementById("mode-toggle");
 
-document.getElementById('mode-toggle').addEventListener('click', function() {
-    const body = document.body;
-    body.classList.toggle('dark-mode');
-    this.textContent = body.classList.contains('dark-mode') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
-});
+  // Toggle dark and light mode
+  body.classList.toggle("dark-mode");
+  body.classList.toggle("light-mode");
+
+  // Update button text based on the current mode
+  if (body.classList.contains("dark-mode")) {
+      button.textContent = "Switch to Light Mode";
+  } else {
+      button.textContent = "Switch to Dark Mode";
+  }
+}
+
+// Add click event listener to toggle button
+document.getElementById("mode-toggle").addEventListener("click", toggleMode);
 
 document.getElementById('logout-button').addEventListener('click', function () {
     window.location.href = 'mainmenu.html';

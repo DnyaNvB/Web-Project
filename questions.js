@@ -9,6 +9,7 @@ function accordion() {
 
 btns.forEach((el) => el.addEventListener("click", accordion));
 
+
 // Filter questions by difficulty and category
 function applyFilters() {
   const difficulty = document.getElementById('difficulty-select').value;
