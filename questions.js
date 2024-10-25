@@ -1,39 +1,35 @@
 const btns = document.querySelectorAll(".acc-btn");
 
-// fn
+// Accordion behavior
 function accordion() {
-  // this = the btn | icon & bg changed
   this.classList.toggle("is-open");
-
-  // the acc-content
   const content = this.nextElementSibling;
-
-  // IF open, close | else open
-  if (content.style.maxHeight) content.style.maxHeight = null;
-  else content.style.maxHeight = content.scrollHeight + "px";
+  content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + "px";
 }
 
-// event
 btns.forEach((el) => el.addEventListener("click", accordion));
 
-function filterQuestions(difficulty) {
+
+// Filter questions by difficulty and category
+function applyFilters() {
+  const difficulty = document.getElementById('difficulty-select').value;
+  const category = document.getElementById('category-select').value;
   const items = document.querySelectorAll('.acc-item');
 
   items.forEach(item => {
-    if (difficulty === 'all' || item.getAttribute('data-difficulty') === difficulty) {
-      item.style.display = 'block';
-    } else {
-      item.style.display = 'none';
-    }
+    const matchesDifficulty = difficulty === 'all' || item.getAttribute('data-difficulty') === difficulty;
+    const matchesCategory = category === 'all' || item.getAttribute('data-category') === category;
+    item.style.display = matchesDifficulty && matchesCategory ? 'block' : 'none';
   });
 }
 
+// Dark/Light mode toggle
 document.getElementById('mode-toggle').addEventListener('click', function() {
-  const body = document.body;
-  body.classList.toggle('dark-mode');
-  if (body.classList.contains('dark-mode')) {
-    this.textContent = 'Switch to Light Mode';
-  } else {
-    this.textContent = 'Switch to Dark Mode';
-  }
+  document.body.classList.toggle('dark-mode');
+  this.textContent = document.body.classList.contains('dark-mode') ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+});
+
+// Logout button functionality
+document.getElementById('logout-button').addEventListener('click', function() {
+  window.location.href = 'mainmenu.html';
 });

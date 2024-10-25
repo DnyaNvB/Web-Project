@@ -1,7 +1,6 @@
 function toggleDarkMode() {
     document.body.classList.toggle("dark-mode");
 }
-
 function add_to_list() {
     // Get the values of inputs
     let category = document.querySelector('select[name="category"]').value;
@@ -16,28 +15,32 @@ function add_to_list() {
 
     // Creating a list item with all the necessary information
     let questionItem = `
-        <li class="question_item">
-            <div class="question_details">
-                <div class="question_header">
-                    <p><strong>Category:</strong> ${category}</p>
-                    <h4>${title}</h4>
-                    <p><strong>Description:</strong> ${description}</p>
-                    <p><strong>Difficulty:</strong> ${difficulty}</p>
-                </div>
-                <div class="question_options">
-                    <p><strong>Options:</strong></p>
-                    <ul>
-                        <li>A: ${optionA}</li>
-                        <li>B: ${optionB}</li>
-                        <li>C: ${optionC}</li>
-                        <li>D: ${optionD}</li>
-                    </ul>
-                    <p><strong>Correct Answer:</strong> ${correctAnswer}</p>
-                </div>
+    <li class="question_item">
+        <div class="question_details">
+            <div class="question_header">
+                <p><strong>Category:</strong> ${category}</p>
+                <h4>${title}</h4>
+                <p><strong>Description:</strong> ${description}</p>
+                <p><strong>Difficulty:</strong> ${difficulty}</p>
             </div>
-        </li>
-    `;
+            <div class="question_options">
+                <p><strong>Options:</strong></p>
+                <ul>
+                    <li>A: ${optionA}</li>
+                    <li>B: ${optionB}</li>
+                    <li>C: ${optionC}</li>
+                    <li>D: ${optionD}</li>
+                </ul>
+                <p><strong>Correct Answer:</strong> ${correctAnswer}</p>
+            </div>
+        </div>
+    </li>
+`;
 
     // Append the question item to the list
     document.getElementById('questions_list').insertAdjacentHTML('beforeend', questionItem);
 }
+
+document.getElementById('logout-button').addEventListener('click', function () {
+    window.location.href = 'mainmenu.html';
+});

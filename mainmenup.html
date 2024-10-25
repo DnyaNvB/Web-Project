@@ -10,11 +10,10 @@
   <link rel="stylesheet" href="./mainmenu.css">
 
 </head>
-<body class="light-mode"> 
-  <button id="mode-toggle" style="position: absolute; top: 20px; right: 20px;">Switch to Dark Mode</button>
 
 <body class="light-mode">
   <button id="logout-button" style="position: absolute; top: 20px; left: 20px;">Logout</button>
+  <div class="score-display" style="position: absolute; top: 60px; left: 20px;">Score: 42342</div>
   <button id="mode-toggle" style="position: absolute; top: 20px; right: 20px;">Switch to Dark Mode</button>
 
   <!-- partial:index.partial.html -->
@@ -37,8 +36,10 @@
     <h1>Welcome</h1>
     <div class="buttons-con">
       <div class="action-link-wrap">
-             <a href="management.html">Question Management</a>
-             <a href="category.html">Category Management</a>
+        <a href="questions.html" class="link-button link-back-button">Question Management</a>
+        <a href="leaderboard.html" class="link-button">Leaderboard</a>
+        <!--      <a href="management.html">Question Management</a>-->
+        <!--      <a href="category.html">Category Management</a>-->
       </div>
     </div>
   </div>

@@ -11,6 +11,23 @@
 	border: 0.25rem solid #222;
 }
 
+#logout-button {
+	background-color: #000000;
+	color: #ffffff;
+	padding: 8px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-weight: bold;
+	transition: background 0.3s;
+  }
+  
+  #logout-button:hover {
+	background-color: #ffffff;
+	color: #000000;
+  }
+  
+
 ::-webkit-scrollbar-thumb {
 	background: #404040;
 	border: 0.25rem solid #222;
