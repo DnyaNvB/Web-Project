@@ -88,16 +88,25 @@ class App extends React.Component {
 
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), document.getElementById('app'));
 
-
-document.getElementById('mode-toggle').addEventListener('click', function () {
+function toggleMode() {
   const body = document.body;
-  body.classList.toggle('dark-mode');
-  if (body.classList.contains('dark-mode')) {
-    this.textContent = 'Switch to Light Mode';
+  const button = document.getElementById("mode-toggle");
+
+  // Toggle dark and light mode
+  body.classList.toggle("dark-mode");
+  body.classList.toggle("light-mode");
+
+  // Update button text based on the current mode
+  if (body.classList.contains("dark-mode")) {
+    button.textContent = "Switch to Light Mode";
   } else {
-    this.textContent = 'Switch to Dark Mode';
+    button.textContent = "Switch to Dark Mode";
   }
-});
+}
+
+// Add click event listener to toggle button
+document.getElementById("mode-toggle").addEventListener("click", toggleMode);
+
 document.getElementById('logout-button').addEventListener('click', function() {
   // Add your logout logic here, such as redirecting to a logout page
   window.location.href = 'mainmenup.html'; // Example redirect to a logout page

@@ -1,3 +1,6 @@
+function toggleDarkMode() {
+    document.body.classList.toggle("dark-mode");
+}
 function add_to_list() {
     // Get the values of inputs
     let category = document.querySelector('select[name="category"]').value;

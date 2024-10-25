@@ -4,13 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To Do List - Categories</title>
+    <title>Categories</title>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
     <link rel="stylesheet" href="./category.css">
 </head>
+<body class="light-mode"> 
+    <div class="toggle-container">
+        <button id="mode-toggle">Switch to Dark Mode</button>
+    </div>
 
-<body class="light-mode">
     <!-- Logout button -->
     <button id="logout-button" style="position: absolute; top: 20px; left: 20px;">Back</button>
     <!-- Dark/Light mode toggle button -->
@@ -58,7 +61,6 @@
                     </tr>
                 </table>
             </div>
-
             <!-- Category list -->
             <div class="cont_princ_lists">
                 <ul id="category-list">
