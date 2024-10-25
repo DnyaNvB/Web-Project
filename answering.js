@@ -6,9 +6,9 @@ function filterQuestions(difficulty) {
 
   items.forEach(item => {
     if (difficulty === 'all' || item.getAttribute('data-difficulty') === difficulty) {
-      item.style.display = 'block'; // Show item
+      item.style.display = 'block'; 
     } else {
-      item.style.display = 'none'; // Hide item
+      item.style.display = 'none'; 
     }
   });
 }
@@ -28,14 +28,6 @@ function accordion() {
 // event
 btns.forEach((el) => el.addEventListener("click", accordion));
 
-/*
-
-       Jokes are from >
-        https://chartcons.com/100-funny-trick-questions-answers/
-        Background image from >
-        https://www.magicpattern.design/tools/css-backgrounds
-
-*/
 document.getElementById('mode-toggle').addEventListener('click', function() {
   const body = document.body;
   body.classList.toggle('dark-mode');
