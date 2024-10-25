@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - FAQ Accordion</title>
+  <title>FAQ Accordion</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./answering.css">
 </head>
-
 <body>
   <button id="logout-button" style="position: absolute; top: 20px; left: 20px;">Back</button>
   <main class="card">
@@ -23,21 +21,30 @@
           <form class="random-question-form">
             <!-- Placeholder for random question and options -->
           </form>
-          <button class="btn random-submit-btn" onclick="submitRandomAnswer()" style="display: none;">Submit
-            Answer</button>
+          <button class="btn random-submit-btn" onclick="submitRandomAnswer()" style="display: none;">Submit Answer</button>
           <p class="result-message"></p>
         </div>
       </div>
       <div class="filter-options">
-        <button class="filter-btn" onclick="filterQuestions('all')">All</button>
-        <button class="filter-btn" onclick="filterQuestions('easy')">Easy</button>
-        <button class="filter-btn" onclick="filterQuestions('normal')">Normal</button>
-        <button class="filter-btn" onclick="filterQuestions('hard')">Hard</button>
+        <button class="filter-btn" onclick="filterQuestions('all', selectedCategory)">All</button>
+        <button class="filter-btn" onclick="filterQuestions('easy', selectedCategory)">Easy</button>
+        <button class="filter-btn" onclick="filterQuestions('normal', selectedCategory)">Normal</button>
+        <button class="filter-btn" onclick="filterQuestions('hard', selectedCategory)">Hard</button>
+        
+        <select id="category-select" onchange="updateCategoryFilter()">
+          <option value="all">All Categories</option>
+          <option value="general">General</option>
+          <option value="joke">Jokes</option>
+          <option value="science">Science</option>
+          <option value="animal">Animals</option>
+          <!-- Add other options as needed or dynamically populate -->
+        </select>
       </div>
-      <div class="acc-item" data-difficulty="normal">
+      
+      <div class="acc-item" data-difficulty="normal" data-category="general">
         <button class="acc-btn">
           <span class="score-icon">⭐</span>
-          <span class="score">NORMAL</span>What is the definition of a will?
+          <span class="score">NORMAL</span><span class="category">[General]</span> What is the definition of a will?
         </button>
         <div class="acc-content">
           <form>
@@ -50,10 +57,10 @@
         </div>
       </div>
 
-      <div class="acc-item" data-difficulty="hard">
+      <div class="acc-item" data-difficulty="hard" data-category="science">
         <button class="acc-btn">
           <span class="score-icon">⭐</span>
-          <span class="score">HARD</span>What happens to chemists when they die?
+          <span class="score">HARD</span><span class="category">[Science]</span> What happens to chemists when they die?
         </button>
         <div class="acc-content">
           <form>
@@ -66,10 +73,10 @@
         </div>
       </div>
 
-      <div class="acc-item" data-difficulty="hard">
+      <div class="acc-item" data-difficulty="hard" data-category="animal">
         <button class="acc-btn">
           <span class="score-icon">⭐</span>
-          <span class="score">HARD</span>Why does the leopard find it difficult to hide and stalk?
+          <span class="score">HARD</span><span class="category">[Animals]</span> Why does the leopard find it difficult to hide and stalk?
         </button>
         <div class="acc-content">
           <form>
@@ -82,10 +89,10 @@
         </div>
       </div>
 
-      <div class="acc-item" data-difficulty="easy">
+      <div class="acc-item" data-difficulty="easy" data-category="joke">
         <button class="acc-btn">
           <span class="score-icon">⭐</span>
-          <span class="score">EASY</span>What kind of key opens a banana?
+          <span class="score">EASY</span><span class="category">[Jokes]</span> What kind of key opens a banana?
         </button>
         <div class="acc-content">
           <form>
@@ -105,5 +112,4 @@
 
   <script src="./answering.js"></script>
 </body>
-
 </html>
