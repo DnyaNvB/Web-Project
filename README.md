@@ -1,7 +1,4 @@
-# Web_phase1
-
-Wireframe: https://whimsical.com/phase1-P1zkKrkfM4hxupZpd1p7DK
-
+**# Web_phase1
 
 <div dir="rtl">
 
@@ -68,3 +65,4 @@ Wireframe: https://whimsical.com/phase1-P1zkKrkfM4hxupZpd1p7DK
 4. زیبایی بصری صفحات (شامل رعایت اصول انتخاب رنگ‌ها و …)
 5. امکان تغییر به dark mode
 </div>
+**
