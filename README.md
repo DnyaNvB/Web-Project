@@ -1,6 +1,8 @@
 # Web_phase1
 
-Wireframe: https://whimsical.com/phase1-P1zkKrkfM4hxupZpd1p7DK
+Wireframe: 
+1. https://app.visily.ai/projects/3c59d69c-1f97-40f2-80c2-9882a71d8ae9/boards/1372279
+2. [https://whimsical.com/phase1-P1zkKrkfM4hxupZpd1p7DK](https://whimsical.com/phase1-P1zkKrkfM4hxupZpd1p7DK)
 
 
 <div dir="rtl">
