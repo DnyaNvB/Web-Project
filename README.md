@@ -59,8 +59,12 @@ Wireframe:
    1. مستند معماری پروژه که در آن به شکل مختصر موجودیت‌ها سیستم و دید سطح بالای صفحات با وایرفریم:
       
 Wireframe: 
-1. https://app.visily.ai/projects/3c59d69c-1f97-40f2-80c2-9882a71d8ae9/boards/1372279
-2. [https://whimsical.com/phase1-P1zkKrkfM4hxupZpd1p7DK](https://whimsical.com/phase1-P1zkKrkfM4hxupZpd1p7DK)
+
+ https://app.visily.ai/projects/3c59d69c-1f97-40f2-80c2-9882a71d8ae9/boards/1372279
+ 
+ [https://whimsical.com/phase1-P1zkKrkfM4hxupZpd1p7DK](https://whimsical.com/phase1-P1zkKrkfM4hxupZpd1p7DK)
+
+
    3. فیلمی حداکثر ۵ دقیقه‌ای برای معرفی ویژگی‌های اصلی سیستم. (در این ریپو آپلود شده است.)
    4. گزارش پروژه که همین فایل readme.md می‌باشد.
    5. مواردی که باید در قالب کد پیاده‌سازی می‌کردیم. (در این ریپو مشاهده می‌شود.)
