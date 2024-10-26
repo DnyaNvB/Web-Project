@@ -301,3 +301,23 @@ body {
     position: relative;
     top: 3px;
 }
+
+.selected-option {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.correct-answer {
+    color: green;
+    font-weight: bold;
+}
+
+.answer-status.correct {
+    color: green;
+    font-weight: bold;
+}
+
+.answer-status.incorrect {
+    color: red;
+    font-weight: bold;
+}
