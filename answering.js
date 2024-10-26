@@ -71,22 +71,28 @@ function displayRandomQuestion() {
   document.querySelector('.result-message').textContent = '';
 }
 
-// Submit random answer
-function submitRandomAnswer() {
+function submitRandomAnswer(event) {
+  event.preventDefault(); // Prevent the default form submission
+
   const selectedOption = document.querySelector('input[name="random-answer"]:checked');
-  if (!selectedOption) {
-    alert('Please select an answer.');
-    return;
-  }
   const resultMessage = document.querySelector('.result-message');
+
+  if (!selectedOption) {
+    resultMessage.textContent = 'Please select an answer.';
+    resultMessage.style.color = '#dc3545'; // Red for error
+    return; // Exit the function if no option is selected
+  }
+
   if (selectedOption.value === currentQuestion.correctAnswer) {
     resultMessage.textContent = 'Correct! 🎉';
-    resultMessage.style.color = '#28a745';
+    resultMessage.style.color = '#28a745'; // Green for correct
   } else {
     resultMessage.textContent = 'Incorrect. Try again! ❌';
-    resultMessage.style.color = '#dc3545';
+    resultMessage.style.color = '#dc3545'; // Red for incorrect
   }
 }
+
+document.querySelector('.random-submit-btn').addEventListener('click', submitRandomAnswer);
 
 // Update category filter
 function updateCategoryFilter() {
@@ -109,7 +115,6 @@ function filterQuestions(difficulty = selectedDifficulty, category = selectedCat
   });
 }
 
-
 // Accordion toggle
 function accordion() {
   this.classList.toggle("is-open");
@@ -119,17 +124,43 @@ function accordion() {
 
 // Event listeners
 btns.forEach((el) => el.addEventListener("click", accordion));
-document.getElementById('mode-toggle').addEventListener('click', function() {
-  const body = document.body;
-  body.classList.toggle('dark-mode');
-  if (body.classList.contains('dark-mode')) {
-    this.textContent = 'Switch to Light Mode';
-  } else {
-    this.textContent = 'Switch to Dark Mode';
-  }
-});
+
 document.getElementById('logout-button').addEventListener('click', function () {
   window.location.href = 'questions.html';
-  console.log("hi");
 });
 
+// Handle answer submission for accordion questions
+document.querySelectorAll('.acc-content form').forEach(form => {
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevents the page from refreshing
+
+    const selectedOption = form.querySelector('input[type="radio"]:checked');
+    const resultMessage = form.querySelector('.result-message'); // This selects the correct result-message for the form
+
+    if (!selectedOption) {
+      resultMessage.textContent = 'Please select an answer.';
+      resultMessage.style.color = '#dc3545'; // Red for error
+      return; // Exit if no option is selected
+    }
+
+    // Get the correct answer based on the question
+    const questionText = form.closest('.acc-item').querySelector('.acc-btn').textContent.trim();
+    const questionData = randomQuestions.find(q => q.question === questionText);
+    const correctAnswer = questionData ? questionData.correctAnswer : null;
+
+    // Check if the selected answer is correct
+    const isCorrect = selectedOption.value === correctAnswer;
+
+    // Display result message and style changes
+    resultMessage.textContent = isCorrect ? 'Correct! 🎉' : 'Incorrect. ❌';
+    resultMessage.style.color = isCorrect ? '#28a745' : '#dc3545';
+
+    // Highlight selected answer
+    selectedOption.parentElement.style.backgroundColor = isCorrect ? '#e6ffe6' : '#ffe6e6';
+
+    // Disable the submit button and radio buttons after submission
+    const submitButton = form.querySelector('button');
+    submitButton.disabled = true;
+    form.querySelectorAll('input[type="radio"]').forEach(input => input.disabled = true);
+  });
+});
